@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who am i for you?</title>
+    <style>
+      body {
+        background-color: azure;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        font-family: monospace;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .container {
+        margin-top: -8rem;
+        width: fit-content;
+      }
+      .btns {
+        width: fit-content;
+        margin: auto;
+      }
+      button {
+        padding: 10px;
+        border: none;
+        margin-inline: 10px;
+        font-family: monospace;
+        background-color: burlywood;
+        font-size: 20px;
+        border-radius: 25px;
+        width: 8rem;
+        position: relative;
+      }
+      #friendbtn {
+        transition: all 0.5s;
+      }
+
+      .img {
+        width: 20%;
+        margin-inline: auto;
+      }
+
+      .img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        mix-blend-mode: multiply;
+        animation: scale 1s ease-in-out infinite alternate;
+      }
+
+      @keyframes scale {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.04);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="img-cont" class="img">
+        <img
+          id="change-img"
+          src="https://png.pngtree.com/png-clipart/20220303/original/pngtree-lovely-rabbit-boy-asks-to-take-away-the-element-map-png-image_7400130.png"
+          alt=""
+        />
+      </div>
+      <h1 id="title">Tell me what happend to you🥺😞?</h1>
+      <div class="btns">
+        <button id="papabtn">Batati hoon</button>
+        <button id="friendbtn">Kuch nahi</button>
+      </div>
+    </div>
+    <script>
+      const beta = new Audio(
+        "https://besharamcode-old.netlify.app/Assets/yey.mp3"
+      );
+      const kahua = new Audio(
+        "https://besharamcode-old.netlify.app/Assets/kahua.mp3"
+      );
+
+      const bodyrect = document.body.getBoundingClientRect();
+      //   alert("tell who am i for you");
+      const friendrect = document
+        .getElementById("friendbtn")
+        .getBoundingClientRect();
+      const papabtn = document.getElementById("papabtn");
+      const friendbtn = document.getElementById("friendbtn");
+      friendbtn.addEventListener("mouseenter", (e) => {
+        console.log(e.currentTarget);
+        const x =
+          Math.floor(Math.random() * bodyrect.width - friendrect.width) + 1;
+        const y =
+          Math.floor(Math.random() * bodyrect.height - friendrect.height) + 1;
+        e.currentTarget.style.position = `absolute`;
+        e.currentTarget.style.left = `${x}px`;
+        e.currentTarget.style.top = `${y}px`;
+        kahua.play();
+      });
+      papabtn.onclick = () => {
+        const imgCont = (document.getElementById("img-cont").style.width =
+          "35%");
+        beta.play();
+        const img = document.getElementById("change-img");
+        const title = document.getElementById("title");
+        img.src =
+          "https://png.pngtree.com/png-clipart/20220120/ourlarge/pngtree-happy-boy-hugging-teddy-bear-png-image_4341724.png";
+        title.textContent = "Thank you Annnuuuuuu";
+        setTimeout(() => {
+          window.location =
+            "https://www.instagram.com/direct/t/105501414177396/";
+        }, 1500);
+      };
+    </script>
+  </body>
+</html>
